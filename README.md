@@ -68,32 +68,15 @@ portfolio/
 
 * 💼 [LinkedIn](https://www.linkedin.com/in/shamanth-krishna-vr)
 * 🖥️ [GitHub](https://github.com/Shamanth-k)
-* 
+  
 
 ## 📜 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-```
+## Demo
+[portfolio](https://shamanth-prfolio.netlify.app/)
 
----
-
-## 🔗 LinkedIn Project Description
-
-🚀 Built and deployed my personal portfolio website using Next.js, TypeScript, and Tailwind CSS!
-
-🎯 Key Features:
-
-* Dynamic and responsive UI with a modern tech stack
-* Clean design with smooth navigation and dark mode support
-* Integrated resume, project highlights, and social links
-
-🔧 Technologies Used: Next.js, TypeScript, Tailwind CSS, PostCSS, pnpm
-
-📍 This project not only showcases my technical skills but also reflects my personal brand and professional journey.
-
-Check it out on GitHub 👉 [portfolio](https://github.com/Shamanth-k/portfolio)
-live demo 👉[portfolio](https://shamanth-prfolio.netlify.app/)
 
 
 
