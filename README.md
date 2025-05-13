@@ -68,11 +68,7 @@ portfolio/
 
 * 💼 [LinkedIn](https://www.linkedin.com/in/shamanth-krishna-vr)
 * 🖥️ [GitHub](https://github.com/Shamanth-k)
-  
 
-## 📜 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## Demo
 [portfolio](https://shamanth-prfolio.netlify.app/)
