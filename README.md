@@ -42,7 +42,7 @@ portfolio/
    ```
    git clone https://github.com/Shamanth-k/portfolio.git
    cd portfolio
-```
+``
 
 2. **Install dependencies**
 
