@@ -16,6 +16,8 @@ import {
   Cloud,
   Palette,
   ShoppingCart,
+  Home,
+  Activity,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -58,6 +60,25 @@ const Projects = () => {
       icon: <ShoppingCart className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "MongoDB", "Express", "Payment Gateway"],
     },
+    {
+      title: "Hostel Room Booking System (MERN Stack)",
+      description:
+        "A full-stack hostel room booking application built using the MERN stack, allowing users to view available rooms, make bookings, and manage hostel accommodations efficiently.",
+      github: "https://github.com/Shamanth-k/hostel-room-booking.git",
+      live: "#",
+      icon: <Home className="h-10 w-10 text-primary" />,
+      tags: ["React", "Node.js", "MongoDB", "Express", "Booking System"],
+    },
+    {
+      title: "LifeLine – Emergency Healthcare Web App",
+      description:
+        "A smart emergency response platform connecting patients, ambulances, and hospitals in real-time using the MERN stack. Designed to reduce delays and streamline medical help during critical situations.",
+      github: "https://github.com/Shamanth-k/emergency-health-care-webapp-.git",
+      live: "#",
+      icon: <Activity className="h-10 w-10 text-primary" />,
+      tags: ["React", "Node.js", "MongoDB", "Express", "Emergency Response"],
+    },
+    
   ];
 
   return (
