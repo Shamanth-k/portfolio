@@ -29,7 +29,7 @@ const Projects = () => {
         "A secure, modern login system using public-key cryptography (WebAuthn and FIDO2), enabling passwordless and biometric login.",
       github:
         "https://github.com/Shrinidhi972004/passwordless-password-authentication-system.git",
-      live: "#",
+      live: "https://passwordless-password-authentication.onrender.com",
       icon: <Lock className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "WebAuthn", "FIDO2", "Express"],
     },
@@ -78,7 +78,6 @@ const Projects = () => {
       icon: <Activity className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "MongoDB", "Express", "Emergency Response"],
     },
-    
   ];
 
   return (
