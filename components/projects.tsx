@@ -55,7 +55,7 @@ const Projects = () => {
       title: "E-commerce Website for Handicrafts",
       description:
         "An online platform for buying and selling handcrafted products with responsive UI, cart management, and dynamic product listings.",
-      github: "#",
+      github: "https://github.com/Shamanth-k/Roots-Tech.git",
       live: "#",
       icon: <ShoppingCart className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "MongoDB", "Express", "Payment Gateway"],
