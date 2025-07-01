@@ -8,16 +8,15 @@ import SkillBar from "./skill-bar";
 
 const About = () => {
   const skills = [
-    { name: "JavaScript", level: 90 },
-    { name: "React", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "Express", level: 75 },
+    { name: "HTML/CSS", level: 90 },
+    { name: "React", level: 70 },
+    { name: "JavaScript", level: 70 },
+    { name: "Git", level: 85 },
     { name: "MongoDB", level: 80 },
     { name: "SQL", level: 70 },
-    { name: "AWS", level: 65 },
-    { name: "WebAuthn", level: 75 },
-    { name: "HTML/CSS", level: 90 },
-    { name: "Git", level: 85 },
+    { name: "Node.js", level: 60 },
+    { name: "Express", level: 55 },
+    { name: "WebAuthn", level: 60 },
   ];
 
   return (
