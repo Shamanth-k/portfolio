@@ -46,7 +46,7 @@ const Projects = () => {
       title: "Art Gallery Management System",
       description:
         "Full-stack application using React, Node.js, and SQL for managing artists and exhibitions with admin dashboard and secure login.",
-      github: "#",
+      github: "https://github.com/Shamanth-k/Art-gallery.git",
       live: "#",
       icon: <Palette className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "SQL", "Express", "Authentication"],
