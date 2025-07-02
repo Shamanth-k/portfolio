@@ -18,6 +18,7 @@ import {
   ShoppingCart,
   Home,
   Activity,
+  Globe,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -77,6 +78,15 @@ const Projects = () => {
       live: "#",
       icon: <Activity className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "MongoDB", "Express", "Emergency Response"],
+    },
+    {
+      title: "Personal Developer Portfolio",
+      description:
+        "A sleek, responsive portfolio website built to showcase my projects, skills, and achievements. Designed with modern UI/UX practices and hosted on Netlify.",
+      github: "https://github.com/Shamanth-k/portfolio.git", // Replace with the actual GitHub repo link if different
+      live: "https://shamanth-prfolio.netlify.app/",
+      icon: <Globe className="h-10 w-10 text-primary" />, // You can use another icon like `Layout` or `Monitor` if preferred
+      tags: ["React", "Tailwind CSS", "Responsive Design", "Netlify"],
     },
   ];
 
