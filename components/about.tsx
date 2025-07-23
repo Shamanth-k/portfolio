@@ -56,7 +56,7 @@ const About = () => {
                   particularly interested in cloud technologies, modern
                   authentication systems, and building scalable applications.
                 </p>
-                <a href="/shamanth resume final.pdf" download>
+                <a href="/shamanth_resume_F.pdf" download>
                   <Button className="rounded-full">
                     <Download className="mr-2 h-4 w-4" /> Download Resume
                   </Button>
