@@ -75,7 +75,7 @@ const Projects = () => {
       description:
         "A smart emergency response platform connecting patients, ambulances, and hospitals in real-time using the MERN stack. Designed to reduce delays and streamline medical help during critical situations.",
       github: "https://github.com/Shamanth-k/emergency-health-care-webapp-.git",
-      live: "#",
+      live: "https://lifeline-app-bme.vercel.app/",
       icon: <Activity className="h-10 w-10 text-primary" />,
       tags: ["React", "Node.js", "MongoDB", "Express", "Emergency Response"],
     },
