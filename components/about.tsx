@@ -44,7 +44,7 @@ const About = () => {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold mb-4">Who I Am</h3>
                 <p className="text-foreground/80 mb-6 leading-relaxed">
-                  I'm a 3rd year Information Science Engineering student at
+                  I'm a Final year Information Science Engineering student at
                   Sahyadri College of Engineering and Management. With a passion
                   for full-stack development, I focus on creating modern,
                   efficient, and user-friendly web applications.
