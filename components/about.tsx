@@ -33,12 +33,13 @@ const About = () => {
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
+            className="max-w-2xl w-full"
           >
             <Card className="bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
               <CardContent className="p-6">
@@ -56,34 +57,11 @@ const About = () => {
                   particularly interested in cloud technologies, modern
                   authentication systems, and building scalable applications.
                 </p>
-                <a href="/shamanth_resume_F.pdf" download>
+                <a href="/shamanth_resume v1.pdf" download>
                   <Button className="rounded-full">
                     <Download className="mr-2 h-4 w-4" /> Download Resume
                   </Button>
                 </a>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <Card className="bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-6">My Skills</h3>
-                <div className="space-y-4">
-                  {skills.map((skill, index) => (
-                    <SkillBar
-                      key={skill.name}
-                      name={skill.name}
-                      level={skill.level}
-                      delay={index * 0.1}
-                    />
-                  ))}
-                </div>
               </CardContent>
             </Card>
           </motion.div>

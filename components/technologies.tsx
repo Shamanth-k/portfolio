@@ -1,8 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Code, Database, Server, GitBranch, Figma, CloudCog, Shield, FileCode } from "lucide-react"
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Code,
+  Database,
+  Server,
+  GitBranch,
+  Figma,
+  CloudCog,
+  Shield,
+  FileCode,
+} from "lucide-react";
 
 const Technologies = () => {
   const techCategories = [
@@ -14,12 +23,12 @@ const Technologies = () => {
     {
       title: "Backend",
       icon: <Server className="h-8 w-8 text-primary" />,
-      items: ["Node.js", "Express", "REST APIs", "GraphQL"],
+      items: ["Node.js", "Express"],
     },
     {
       title: "Database",
       icon: <Database className="h-8 w-8 text-primary" />,
-      items: ["MongoDB", "MySQL", "PostgreSQL", "Redis"],
+      items: ["MongoDB", "MySQL", "PostgreSQL"],
     },
     {
       title: "Tools",
@@ -29,24 +38,19 @@ const Technologies = () => {
     {
       title: "Design",
       icon: <Figma className="h-8 w-8 text-primary" />,
-      items: ["Figma", "Adobe XD", "Responsive Design", "UI/UX"],
+      items: ["Figma", "UI/UX"],
     },
     {
       title: "Cloud",
       icon: <CloudCog className="h-8 w-8 text-primary" />,
-      items: ["AWS S3", "AWS EC2", "Firebase", "Vercel"],
-    },
-    {
-      title: "Security",
-      icon: <Shield className="h-8 w-8 text-primary" />,
-      items: ["WebAuthn", "FIDO2", "JWT", "OAuth"],
+      items: ["AWS", "Firebase", "Vercel"],
     },
     {
       title: "Other",
       icon: <FileCode className="h-8 w-8 text-primary" />,
-      items: ["TypeScript", "Next.js", "Redux", "Context API"],
+      items: ["TypeScript", "Next.js", "Context API", "c++"],
     },
-  ]
+  ];
 
   return (
     <section id="technologies" className="py-20 w-full bg-background">
@@ -61,7 +65,8 @@ const Technologies = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Technologies</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-foreground/80 max-w-2xl mx-auto">
-            Here's my tech stack and tools I use to build modern web applications.
+            Here's my tech stack and tools I use to build modern web
+            applications.
           </p>
         </motion.div>
 
@@ -77,8 +82,12 @@ const Technologies = () => {
               <Card className="h-full bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center text-center">
-                    <div className="p-3 rounded-full bg-primary/10 mb-4">{category.icon}</div>
-                    <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+                    <div className="p-3 rounded-full bg-primary/10 mb-4">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4">
+                      {category.title}
+                    </h3>
                     <ul className="space-y-2">
                       {category.items.map((item) => (
                         <li key={item} className="text-foreground/70">
@@ -94,7 +103,7 @@ const Technologies = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Technologies
+export default Technologies;
