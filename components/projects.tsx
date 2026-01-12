@@ -19,6 +19,7 @@ import {
   Home,
   Activity,
   Globe,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -88,6 +89,16 @@ const Projects = () => {
       icon: <Globe className="h-10 w-10 text-primary" />, // You can use another icon like `Layout` or `Monitor` if preferred
       tags: ["React", "Tailwind CSS", "Responsive Design", "Netlify"],
     },
+    {
+  title: "AI Blog Generator (React + Node)",
+  description:
+    "A single-page blog generation tool built with React and Node.js that converts a short text prompt into a ~1000-word, editable blog using a free LLM via Hugging Face Inference API. Focused on minimal UX, server-side API handling, and clean content output.",
+  github: "https://github.com/Shamanth-k/Blog-generator.git",
+  live: "#",
+  icon: <FileText className="h-10 w-10 text-primary" />,
+  tags: ["React", "Node.js", "Express", "Hugging Face API", "LLM"],
+}
+
   ];
 
   return (
