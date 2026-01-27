@@ -66,18 +66,13 @@ const Education = () => {
                   index % 2 === 0 ? "md:pr-12 md:text-right md:ml-0 md:mr-auto" : "md:pl-12 md:ml-auto md:mr-0"
                 } md:w-1/2 pl-12 md:pl-0`}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-auto md:right-0 top-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center z-10 md:translate-x-1/2 -translate-y-1/2">
-                  {item.icon}
-                </div>
 
-                {/* Date badge */}
-                <div
-                  className={`absolute top-0 ${
-                    index % 2 === 0 ? "left-12 md:left-auto md:right-full md:mr-8" : "left-12 md:left-full md:ml-8"
-                  } -translate-y-1/2`}
-                >
-                  <Badge variant="outline" className="flex items-center gap-1 bg-card">
+                {/* Timeline dot and date badge beside each other */}
+                <div className="absolute left-0 md:left-auto md:right-0 top-0 flex items-center gap-2 z-10 md:translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <Badge variant="outline" className="flex items-center gap-1 bg-card shadow-sm">
                     <Calendar className="h-3 w-3" />
                     <span>{item.date}</span>
                   </Badge>

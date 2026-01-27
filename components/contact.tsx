@@ -27,30 +27,11 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // In a real application, you would send this data to your backend
-    // For now, we'll just simulate a successful submission
-
-    // Create mailto link with form data
-    const mailtoLink = `mailto:shamanthk2004@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}%0A%0AFrom: ${formData.name}%0AEmail: ${formData.email}`;
-
-    // Open email client
+  // Programmatically trigger mailto for better compatibility
+  const handleMailto = () => {
+    const mailtoLink = `mailto:shamanthk2004@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}`;
     window.location.href = mailtoLink;
-
-    // Show success toast
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -148,7 +129,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form className="space-y-4" onSubmit={e => e.preventDefault()}>
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
@@ -187,7 +168,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full">
+                  <Button type="button" className="w-full" onClick={handleMailto}>
                     <Send className="mr-2 h-4 w-4" /> Send Message
                   </Button>
                 </form>
