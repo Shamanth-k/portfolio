@@ -28,11 +28,7 @@ const Contact = () => {
   };
 
   // Programmatically trigger mailto for better compatibility
-  const handleMailto = () => {
-    const mailtoLink = `mailto:shamanthk2004@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}`;
-    window.location.href = mailtoLink;
-    setFormData({ name: "", email: "", message: "" });
-  };
+  // No inline JS event handlers. Use anchor for mailto.
 
   return (
     <section id="contact" className="py-20 w-full bg-muted/30">
@@ -129,7 +125,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-                <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+                <form className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
@@ -168,9 +164,14 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="button" className="w-full" onClick={handleMailto}>
-                    <Send className="mr-2 h-4 w-4" /> Send Message
-                  </Button>
+                  <a
+                    className="w-full"
+                    href={`mailto:shamanthk2004@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}`}
+                  >
+                    <Button type="button" className="w-full">
+                      <Send className="mr-2 h-4 w-4" /> Send Message
+                    </Button>
+                  </a>
                 </form>
               </CardContent>
             </Card>

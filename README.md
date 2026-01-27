@@ -78,7 +78,7 @@ npm run dev
 # or
 yarn dev
 ```
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+Visit [https://localhost:3000](https://localhost:3000) in your browser.
 
 #### Production Build
 Build and start the production server:
@@ -96,14 +96,14 @@ yarn build && yarn start
 
 **Shamanth Krishna V R**
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/shamanth-krishna-vr)
-- 🖥️ [GitHub](https://github.com/Shamanth-k)
+// 💼 [LinkedIn](https://www.linkedin.com/in/shamanth-krishna-vr)
+// 🖥️ [GitHub](https://github.com/Shamanth-k)
 
 ---
 
 ## 🌍 Demo
 
-[Live Portfolio](https://shamanth-prfolio.netlify.app/)
+// [Live Portfolio](https://shamanth-prfolio.netlify.app/)
 
 
 
