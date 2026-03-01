@@ -17,8 +17,10 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,8 +29,55 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Programmatically trigger mailto for better compatibility
-  // No inline JS event handlers. Use anchor for mailto.
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const payload = (await response.json()) as {
+        error?: string;
+        success?: boolean;
+      };
+
+      if (!response.ok) {
+        toast({
+          title: "Message not sent",
+          description: payload.error || "Failed to send message",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Message sent",
+        description: "Thanks for reaching out. I will get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch {
+      toast({
+        title: "Message not sent",
+        description: "Failed to send message",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 w-full bg-muted/30">
@@ -66,12 +115,9 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-primary mr-4 mt-1" />
                     <div>
                       <h4 className="font-medium mb-1">Email</h4>
-                      <a
-                        href="mailto:shamanthk2004@gmail.com"
-                        className="text-foreground/70 hover:text-primary transition-colors"
-                      >
+                      <span className="text-foreground/70">
                         shamanthk2004@gmail.com
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -125,13 +171,14 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
                       id="name"
                       name="name"
                       placeholder="Your name"
+                      maxLength={100}
                       required
                       value={formData.name}
                       onChange={handleChange}
@@ -145,8 +192,22 @@ const Contact = () => {
                       name="email"
                       type="email"
                       placeholder="Your email"
+                      maxLength={150}
                       required
                       value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      placeholder="What is this about?"
+                      maxLength={150}
+                      required
+                      value={formData.subject}
                       onChange={handleChange}
                     />
                   </div>
@@ -157,6 +218,7 @@ const Contact = () => {
                       id="message"
                       name="message"
                       placeholder="Your message"
+                      maxLength={2000}
                       rows={5}
                       required
                       value={formData.message}
@@ -164,14 +226,10 @@ const Contact = () => {
                     />
                   </div>
 
-                  <a
-                    className="w-full"
-                    href={`mailto:shamanthk2004@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}`}
-                  >
-                    <Button type="button" className="w-full">
-                      <Send className="mr-2 h-4 w-4" /> Send Message
-                    </Button>
-                  </a>
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    <Send className="mr-2 h-4 w-4" />
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
                 </form>
               </CardContent>
             </Card>

@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "npx tsc --noEmit",
+    "test": "vitest run --config qa/vitest.config.ts",
+    "test:watch": "vitest --config qa/vitest.config.ts",
+    "test:report": "vitest run --config qa/vitest.config.ts --reporter=json --outputFile=qa/test-reports/raw/vitest-results.json && node qa/scripts/generate-test-report.mjs",
+    "test:report:all": "npm run test:report && node qa/scripts/run-extended-checks.mjs && node qa/scripts/generate-all-test-reports.mjs"
   },
   "dependencies": {
-    "@emotion/is-prop-valid": "latest",
-    "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
     "@radix-ui/react-aspect-ratio": "1.1.1",
@@ -42,7 +44,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
-    "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
     "framer-motion": "latest",
     "input-otp": "1.4.1",
@@ -71,6 +72,7 @@
     "@types/react-dom": "^19",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.9"
   }
 }

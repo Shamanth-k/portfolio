@@ -3,12 +3,42 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useRef } from "react";
-import ParticleBackground from "./particle-background";
+import { useEffect, useRef, useState } from "react";
+
+const ParticleBackground = dynamic(() => import("./particle-background"), {
+  ssr: false,
+});
+
+type IdleCallbackHandle = number;
+type IdleCallback = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
+
+type WindowWithIdleCallback = Window & {
+  requestIdleCallback?: (callback: IdleCallback, options?: { timeout: number }) => IdleCallbackHandle;
+  cancelIdleCallback?: (handle: IdleCallbackHandle) => void;
+};
 
 const Hero = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    const idleWindow = window as WindowWithIdleCallback;
+
+    if (idleWindow.requestIdleCallback) {
+      const handle = idleWindow.requestIdleCallback(() => {
+        setShowParticles(true);
+      }, { timeout: 1000 });
+
+      return () => {
+        idleWindow.cancelIdleCallback?.(handle);
+      };
+    }
+
+    const timeout = window.setTimeout(() => setShowParticles(true), 300);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const scrollToNext = () => {
     const nextSection = document.getElementById("about");
@@ -22,7 +52,7 @@ const Hero = () => {
       id="home"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <ParticleBackground />
+      {showParticles ? <ParticleBackground /> : null}
 
       <div className="container mx-auto px-4 z-10 pt-20">
         <div className="max-w-4xl mx-auto text-center">
@@ -66,7 +96,7 @@ const Hero = () => {
               variant="outline"
               className="rounded-full"
             >
-              <Link href="mailto:shamanthk2004@gmail.com">
+              <Link href="#contact">
                 <Mail className="mr-2 h-4 w-4" /> Contact Me
               </Link>
             </Button>

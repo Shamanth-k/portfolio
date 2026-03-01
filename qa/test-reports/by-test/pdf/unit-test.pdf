@@ -1,0 +1,81 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Length 966 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+50 742 Td
+(Unit Test Report) Tj
+T*
+(Status: PASS) Tj
+T*
+(Executed At: 2026-03-01T10:34:37.649Z) Tj
+T*
+() Tj
+T*
+(Scope:) Tj
+T*
+(Executed via Vitest tagged assertions.) Tj
+T*
+() Tj
+T*
+(Method:) Tj
+T*
+(Evidence parsed from `qa/test-reports/raw/vitest-results.json`.) Tj
+T*
+() Tj
+T*
+(Summary:) Tj
+T*
+(9/9 assertions passed for Unit Test.) Tj
+T*
+() Tj
+T*
+(Details:) Tj
+T*
+(- 1. contactSchema accepts a valid payload: PASS) Tj
+T*
+(- 2. contactSchema rejects unknown fields due to strict mode: PASS) Tj
+T*
+(- 3. contactSchema rejects oversized fields: PASS) Tj
+T*
+(- 4. contactSchema rejects invalid email and missing captcha: PASS) Tj
+T*
+(- 5. stripCrLf removes carriage return and line feed characters: PASS) Tj
+T*
+(- 6. stripCrLf trims surrounding whitespace: PASS) Tj
+T*
+(- 7. isSafeExternalUrl accepts https URLs: PASS) Tj
+T*
+(- 8. isSafeExternalUrl rejects non-https protocols: PASS) Tj
+T*
+(- 9. isSafeExternalUrl rejects invalid URLs: PASS) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000136 00000 n 
+0000001152 00000 n 
+0000001278 00000 n 
+trailer
+<< /Size 6 /Root 5 0 R >>
+startxref
+1327
+%%EOF

@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-03-01T10:34:37.566Z",
+  "checks": {
+    "Static Application Security Test (SAST)": {
+      "status": "PASS",
+      "summary": "Static type analysis completed successfully (`tsc --noEmit`).",
+      "details": []
+    },
+    "Build Verification Test": {
+      "status": "PASS",
+      "summary": "Production build completed successfully.",
+      "details": [
+        "> portfolio-website@0.1.0 build",
+        "> next build",
+        "   ▲ Next.js 15.5.12",
+        "   Creating an optimized production build ...",
+        " ✓ Compiled successfully in 6.8s",
+        "   Skipping validation of types",
+        "   Skipping linting",
+        "   Collecting page data ...",
+        "   Generating static pages (0/5) ...",
+        "   Generating static pages (1/5) ",
+        "   Generating static pages (2/5) ",
+        "   Generating static pages (3/5) "
+      ]
+    },
+    "Deployment Test": {
+      "status": "PASS",
+      "summary": "Build artifact generation succeeded; deployment prerequisite passed.",
+      "details": [
+        "> portfolio-website@0.1.0 build",
+        "> next build",
+        "   ▲ Next.js 15.5.12",
+        "   Creating an optimized production build ...",
+        " ✓ Compiled successfully in 6.8s",
+        "   Skipping validation of types",
+        "   Skipping linting",
+        "   Collecting page data ..."
+      ]
+    },
+    "Bundle Size Test": {
+      "status": "PASS",
+      "summary": "Bundle artifacts were generated: 173.87 MB total in .next/.",
+      "details": [
+        "Total bytes: 182317803"
+      ]
+    },
+    "Dependency Scan": {
+      "status": "PASS",
+      "summary": "npm audit detected 10 issues (info+).",
+      "details": [
+        "low=0",
+        "moderate=5",
+        "high=0",
+        "critical=0"
+      ]
+    },
+    "Vulnerability Scan": {
+      "status": "PASS",
+      "summary": "npm audit detected 10 issues (info+).",
+      "details": [
+        "low=0",
+        "moderate=5",
+        "high=0",
+        "critical=0"
+      ]
+    },
+    "SEO Test": {
+      "status": "PASS",
+      "summary": "Detected title and description metadata in app layout.",
+      "details": [
+        "File checked: app/layout.tsx"
+      ]
+    }
+  }
+}

@@ -120,7 +120,8 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            return (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -173,7 +174,8 @@ const Projects = () => {
                 </CardFooter>
               </Card>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
