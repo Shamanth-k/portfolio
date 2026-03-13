@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Send, Github, Linkedin } from "lucide-react";
+import { Mail, Send, Github, Linkedin, Copy, Check } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 
 const Contact = () => {
@@ -21,6 +21,11 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailCopyState, setEmailCopyState] = useState<
+    "default" | "hover" | "clicked"
+  >("default");
+  const contactEmail = "shamanthk2004@gmail.com";
+  const copyResetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -79,6 +84,33 @@ const Contact = () => {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      if (copyResetTimeoutRef.current) {
+        clearTimeout(copyResetTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      if (copyResetTimeoutRef.current) {
+        clearTimeout(copyResetTimeoutRef.current);
+      }
+      setEmailCopyState("clicked");
+      copyResetTimeoutRef.current = setTimeout(() => {
+        setEmailCopyState("default");
+      }, 2000);
+    } catch {
+      toast({
+        title: "Copy failed",
+        description: "Unable to copy email. Please copy it manually.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <section id="contact" className="py-20 w-full bg-muted/30">
       <div className="container mx-auto px-4">
@@ -115,9 +147,53 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-primary mr-4 mt-1" />
                     <div>
                       <h4 className="font-medium mb-1">Email</h4>
-                      <span className="text-foreground/70">
-                        shamanthk2004@gmail.com
-                      </span>
+                      <motion.button
+                        type="button"
+                        onClick={handleCopyEmail}
+                        onMouseEnter={() => {
+                          if (emailCopyState !== "clicked") {
+                            setEmailCopyState("hover");
+                          }
+                        }}
+                        onMouseLeave={() => {
+                          if (emailCopyState !== "clicked") {
+                            setEmailCopyState("default");
+                          }
+                        }}
+                        whileTap={{ scale: 0.96 }}
+                        className="inline-flex items-center gap-1.5 text-foreground/70 hover:text-foreground transition-colors"
+                        aria-label="Copy email address"
+                      >
+                        <motion.span
+                          initial={false}
+                          animate={{
+                            width: emailCopyState === "default" ? 0 : 16,
+                            opacity: emailCopyState === "default" ? 0 : 1,
+                            filter:
+                              emailCopyState === "default"
+                                ? "blur(2px)"
+                                : "blur(0px)",
+                            scale: emailCopyState === "clicked" ? 1 : 0.98,
+                          }}
+                          transition={{ duration: 0.2 }}
+                          className="inline-flex overflow-hidden"
+                        >
+                          {emailCopyState === "clicked" ? (
+                            <Check className="h-4 w-4" />
+                          ) : (
+                            <Copy className="h-4 w-4" />
+                          )}
+                        </motion.span>
+                        <span
+                          className={`underline underline-offset-4 transition-colors ${
+                            emailCopyState === "default"
+                              ? "decoration-foreground/40"
+                              : "decoration-foreground/70"
+                          }`}
+                        >
+                          {contactEmail}
+                        </span>
+                      </motion.button>
                     </div>
                   </div>
                 </div>
